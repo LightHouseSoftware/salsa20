@@ -1,0 +1,5 @@
+name "salsa20"
+description "Minimal implementation of Salsa20 cipher algorithm"
+authors "aquaratixc"
+copyright "LightHouse Software"
+license "ESL 1.0"
