@@ -1,3 +1,4 @@
+/// Based on code: https://github.com/alexwebr/salsa20
 module salsa20;
 
 enum SALSA_KEY_LENGTH
@@ -145,7 +146,13 @@ class Salsa20
 	    
 	    hash(keystream);
 	}
-	
+        
+	/*	
+	si     Stream index.
+         This is for seeking within a larger message. If you are only
+         working with small messages that are encrypted/decrypted all
+         at once (like TLS records), this will always be 0.
+        */
 	SALSA_STATUS crypt(ubyte* key, SALSA_KEY_LENGTH keylen, ubyte* nonce, uint si, ubyte* buf, uint buflen) @system @nogc
 	{
 		ubyte[64] keystream;
